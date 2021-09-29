@@ -1,0 +1,14 @@
+int retValue = 0;
+Iterator it = lookIn.iterator();
+while (it.hasNext()) {
+	ClipboardProperty next = (ClipboardProperty) it.next();
+	ClipboardPage nextPage = next.getPageValue();
+	ClipboardProperty prop = nextPage.getIfPresent(lookAt);
+	if (prop != null)
+	{
+		if (prop.getStringValue().equalsIgnoreCase(lookFor)) {
+			retValue++;
+		}
+	}
+}
+return retValue;
